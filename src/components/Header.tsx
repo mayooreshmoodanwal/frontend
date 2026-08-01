@@ -14,7 +14,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full backdrop-blur-xl border-b border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="#" className="flex items-center space-x-3 group">
+        <a
+          href="#create"
+          onClick={() => {
+            if (typeof window !== 'undefined') {
+              window.dispatchEvent(new CustomEvent('reset-crafting-form'));
+            }
+          }}
+          className="flex items-center space-x-3 group"
+        >
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-pink-500 to-amber-400 p-[2px] shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-transform">
             <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-amber-400 animate-pulse" />
@@ -41,7 +49,15 @@ export default function Header() {
           <a href="#features" className="hover:text-white transition-colors">
             Features
           </a>
-          <a href="#create" className="hover:text-white transition-colors">
+          <a
+            href="#create"
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('reset-crafting-form'));
+              }
+            }}
+            className="hover:text-white transition-colors"
+          >
             Builder Wizard
           </a>
           <a href="#faq" className="hover:text-white transition-colors">
@@ -123,6 +139,11 @@ export default function Header() {
           {/* Builder Button */}
           <a
             href="#create"
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('reset-crafting-form'));
+              }
+            }}
             className="px-4 py-2.5 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-semibold text-xs sm:text-sm hover:opacity-90 transition-all shadow-lg shadow-purple-600/25 flex items-center space-x-1.5"
           >
             <Sparkles className="w-4 h-4" />

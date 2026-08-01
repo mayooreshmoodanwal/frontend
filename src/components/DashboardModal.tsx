@@ -162,7 +162,12 @@ export default function DashboardModal() {
                         Fill out our 5-step wizard to design a bespoke birthday experience!
                       </p>
                       <button
-                        onClick={closeDashboard}
+                        onClick={() => {
+                          closeDashboard();
+                          if (typeof window !== 'undefined') {
+                            window.dispatchEvent(new CustomEvent('reset-crafting-form'));
+                          }
+                        }}
                         className="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow-lg inline-flex items-center space-x-2"
                       >
                         <Plus className="w-4 h-4" />

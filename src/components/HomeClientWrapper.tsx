@@ -31,6 +31,21 @@ export default function HomeClientWrapper() {
     }
   }, []);
 
+  // Listen for reset-crafting-form event (Craft Website button, Brand logo, or Logout)
+  React.useEffect(() => {
+    const handleReset = () => {
+      setViewState('form');
+      setGenerationData(null);
+      setFormError(null);
+      if (typeof window !== 'undefined') {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    };
+
+    window.addEventListener('reset-crafting-form', handleReset);
+    return () => window.removeEventListener('reset-crafting-form', handleReset);
+  }, []);
+
   const handleStart = () => {
     if (!user) {
       openAuthModal('signin');
