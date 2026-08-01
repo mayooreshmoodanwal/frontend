@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── THEME TOKENS ───────────────────────────────────────── */
+/* Default / Dark: Midnight Velvet */
+:root,
+html[data-theme="midnight"] {
+  --bg-base:            #0a0715;
+  --bg-surface:         rgba(20, 15, 38, 0.75);
+  --bg-glass:           rgba(255, 255, 255, 0.05);
+  --border:             rgba(255, 255, 255, 0.12);
+  --border-glow:        rgba(168, 85, 247, 0.45);
+  --text-main:          #f8fafc;
+  --text-muted:         #94a3b8;
+  --text-sub:           #64748b;
+  --accent:             #a855f7;
+  --accent-hover:       #9333ea;
+  --accent-gradient:    linear-gradient(135deg,#a855f7 0%,#ec4899 50%,#6366f1 100%);
+  --orb-1:              rgba(168, 85, 247, 0.28);
+  --orb-2:              rgba(236, 72, 153, 0.22);
+  --orb-3:              rgba(99, 102, 241, 0.18);
+  --input-bg:           rgba(15, 11, 28, 0.85);
+  --input-border:       rgba(255,255,255,0.15);
+  --step-done:          rgba(16,185,129,0.15);
+  --step-done-border:   #10b981;
+  --card-inner:         rgba(255,255,255,0.04);
+  --card-inner-border:  rgba(255,255,255,0.08);
+  --scrollbar-thumb:    rgba(255,255,255,0.15);
+  --tag-bg:             rgba(168,85,247,0.15);
+  --tag-text:           #c4b5fd;
+}
+
+html[data-theme="emerald"] {
+  --bg-base:            #051210;
+  --bg-surface:         rgba(11, 37, 32, 0.80);
+  --bg-glass:           rgba(255, 255, 255, 0.04);
+  --border:             rgba(255, 255, 255, 0.12);
+  --border-glow:        rgba(16, 185, 129, 0.45);
+  --text-main:          #ecfdf5;
+  --text-muted:         #a7f3d0;
+  --text-sub:           #6ee7b7;
+  --accent:             #10b981;
+  --accent-hover:       #059669;
+  --accent-gradient:    linear-gradient(135deg,#10b981 0%,#14b8a6 50%,#f59e0b 100%);
+  --orb-1:              rgba(16, 185, 129, 0.26);
+  --orb-2:              rgba(20, 184, 166, 0.20);
+  --orb-3:              rgba(245, 158, 11, 0.16);
+  --input-bg:           rgba(7, 24, 21, 0.85);
+  --input-border:       rgba(255,255,255,0.15);
+  --step-done:          rgba(16,185,129,0.15);
+  --step-done-border:   #34d399;
+  --card-inner:         rgba(255,255,255,0.04);
+  --card-inner-border:  rgba(255,255,255,0.08);
+  --scrollbar-thumb:    rgba(255,255,255,0.15);
+  --tag-bg:             rgba(16,185,129,0.15);
+  --tag-text:           #6ee7b7;
+}
+
+/* ── LIGHT: Pitch Silk ── */
+html[data-theme="silk"] {
+  --bg-base:            #f8f5ff;
+  --bg-surface:         rgba(255, 255, 255, 0.92);
+  --bg-glass:           rgba(124, 58, 237, 0.05);
+  --border:             rgba(109, 40, 217, 0.18);
+  --border-glow:        rgba(109, 40, 217, 0.45);
+  --text-main:          #1e1b4b;
+  --text-muted:         #4c1d95;
+  --text-sub:           #6d28d9;
+  --accent:             #7c3aed;
+  --accent-hover:       #6d28d9;
+  --accent-gradient:    linear-gradient(135deg,#7c3aed 0%,#a855f7 50%,#6366f1 100%);
+  --orb-1:              rgba(216, 196, 252, 0.90);
+  --orb-2:              rgba(238, 232, 254, 0.95);
+  --orb-3:              rgba(199, 210, 254, 0.55);
+  --input-bg:           #ffffff;
+  --input-border:       rgba(109,40,217,0.25);
+  --step-done:          rgba(109,40,217,0.12);
+  --step-done-border:   #7c3aed;
+  --card-inner:         rgba(109,40,217,0.04);
+  --card-inner-border:  rgba(109,40,217,0.15);
+  --scrollbar-thumb:    rgba(109,40,217,0.25);
+  --tag-bg:             rgba(109,40,217,0.10);
+  --tag-text:           #5b21b6;
+}
+
+/* ── LIGHT: Pearl Champagne ── */
+html[data-theme="pearl"] {
+  --bg-base:            #fff9f5;
+  --bg-surface:         rgba(255, 255, 255, 0.94);
+  --bg-glass:           rgba(244, 63, 94, 0.04);
+  --border:             rgba(225, 29, 72, 0.18);
+  --border-glow:        rgba(225, 29, 72, 0.45);
+  --text-main:          #3b0a1a;
+  --text-muted:         #881337;
+  --text-sub:           #be123c;
+  --accent:             #f43f5e;
+  --accent-hover:       #e11d48;
+  --accent-gradient:    linear-gradient(135deg,#f43f5e 0%,#fb923c 50%,#e11d48 100%);
+  --orb-1:              rgba(253, 226, 226, 0.95);
+  --orb-2:              rgba(254, 243, 235, 0.95);
+  --orb-3:              rgba(254, 205, 211, 0.60);
+  --input-bg:           #ffffff;
+  --input-border:       rgba(225,29,72,0.22);
+  --step-done:          rgba(225,29,72,0.10);
+  --step-done-border:   #f43f5e;
+  --card-inner:         rgba(225,29,72,0.04);
+  --card-inner-border:  rgba(225,29,72,0.12);
+  --scrollbar-thumb:    rgba(225,29,72,0.22);
+  --tag-bg:             rgba(225,29,72,0.10);
+  --tag-text:           #9f1239;
+}
+
+/* ─── BASE STYLES ────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  color:            var(--text-main);
+  background-color: var(--bg-base);
+  min-height:       100vh;
+  font-family:      'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x:       hidden;
+  transition:       background-color 0.45s ease, color 0.45s ease;
+}
+
+/* Headings inherit theme token color */
+h1, h2, h3, h4, h5, h6 { color: var(--text-main); }
+
+/* ─── PITCH-STYLE ORGANIC ORB GLOW BACKGROUND ───────────── */
+.pitch-bg-glow {
+  position: absolute; inset: 0;
+  overflow: hidden; pointer-events: none; z-index: 0;
+}
+.pitch-orb-1 {
+  position:absolute; top:-15%; right:-5%;
+  width:65vw; height:65vw; max-width:820px; max-height:820px;
+  border-radius:50%; background: var(--orb-1);
+  filter:blur(130px); opacity:0.9;
+  animation: floatOrb 18s ease-in-out infinite alternate;
+}
+.pitch-orb-2 {
+  position:absolute; top:25%; left:-10%;
+  width:55vw; height:55vw; max-width:700px; max-height:700px;
+  border-radius:50%; background: var(--orb-2);
+  filter:blur(150px); opacity:0.8;
+  animation: floatOrb 22s ease-in-out infinite alternate-reverse;
+}
+.pitch-orb-3 {
+  position:absolute; bottom:5%; right:10%;
+  width:45vw; height:45vw; max-width:600px; max-height:600px;
+  border-radius:50%; background: var(--orb-3);
+  filter:blur(120px); opacity:0.75;
+  animation: floatOrb 16s ease-in-out infinite alternate;
+}
+@keyframes floatOrb {
+  0%   { transform:translate(0,0) scale(1); }
+  50%  { transform:translate(40px,-30px) scale(1.08); }
+  100% { transform:translate(-30px,40px) scale(0.95); }
+}
+
+/* ─── GLASS PANEL ────────────────────────────────────────── */
+.glass-panel-luxury {
+  background:          var(--bg-surface);
+  backdrop-filter:     blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border:              1px solid var(--border);
+  box-shadow:          0 20px 50px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.08);
+  transition:          border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-panel-luxury:hover { border-color: var(--border-glow); }
+
+/* ─── INPUT FIELD ────────────────────────────────────────── */
+.input-field-hc {
+  background:  var(--input-bg);
+  border:      1px solid var(--input-border);
+  color:       var(--text-main);
+  width:       100%;
+  padding:     0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size:   0.875rem;
+  transition:  border-color 0.2s ease, box-shadow 0.2s ease;
+  outline:     none;
+}
+.input-field-hc::placeholder { color: var(--text-sub); opacity: 0.8; }
+.input-field-hc:focus {
+  border-color: var(--accent);
+  box-shadow:   0 0 0 3px rgba(168, 85, 247, 0.25);
+}
+
+select.input-field-hc { appearance: auto; }
+
+/* ─── SCROLL-REVEAL ANIMATION ────────────────────────────── */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+              transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* ─── TAG / BADGE PILL ───────────────────────────────────── */
+.theme-tag {
+  background:   var(--tag-bg);
+  color:        var(--tag-text);
+  border:       1px solid var(--border-glow);
+  font-size:    0.6875rem;
+  font-weight:  700;
+  letter-spacing: 0.05em;
+  padding:      0.25rem 0.75rem;
+  border-radius: 9999px;
+  display:      inline-flex;
+  align-items:  center;
+  gap:          0.375rem;
+}
+
+/* ─── UTILITIES ─────────────────────────────────────────── */
+.text-muted-theme { color: var(--text-muted); }
+.text-sub-theme   { color: var(--text-sub); }
+.border-theme     { border-color: var(--border); }
+.bg-surface-theme { background: var(--bg-surface); }
+
+/* ─── CUSTOM SCROLLBAR ───────────────────────────────────── */
+::-webkit-scrollbar       { width: 7px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }

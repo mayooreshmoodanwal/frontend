@@ -1,0 +1,45 @@
+# Wishelier Production Apache Server Configuration
+RewriteEngine On
+RewriteBase /
+
+# 1. Force UTF-8 Character Encoding
+AddDefaultCharset UTF-8
+
+# 2. Redirect www.wishelier.in -> wishelier.in (Canonical domain 301 redirect)
+RewriteCond %{HTTP_HOST} ^www\.wishelier\.in$ [NC]
+RewriteRule ^(.*)$ https://wishelier.in/$1 [R=301,L]
+
+# 3. Force HTTPS Redirect (301)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# 4. GZip Compression (mod_deflate)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml
+</IfModule>
+
+# 5. Browser Caching Headers (mod_expires.c)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+# 6. Clean URLs & Directory Index Rules
+RewriteRule ^v/(.*)$ https://wishelier-backend.onrender.com/v/$1 [R=302,L]
+
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.*)$ $1/index.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+# 7. 404 Error Document Fallback
+ErrorDocument 404 /404.html
