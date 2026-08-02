@@ -1,5 +1,5 @@
 'use client';
-
+// Wishelier 3D AI Studio Header Component (Updated August 2026)
 import React, { useState } from 'react';
 import { Sparkles, Palette, ChevronDown, Check, User, LogIn } from 'lucide-react';
 import { useTheme, THEMES, ThemeName } from '@/context/ThemeContext';
